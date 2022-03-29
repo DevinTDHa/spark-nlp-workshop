@@ -44,10 +44,6 @@ def load_sparknlp_models():
         .setInputCols(["sentence","token"])\
         .setOutputCol("embeddings")
 
-    biobert_embeddings = BertEmbeddings.pretrained("biobert_pubmed_base_cased").setInputCols(["sentence", "token"]).setOutputCol("embeddings")
-
-    embeddings
-
     model_dict = {
         'sentenceDetector': sentenceDetector,
         'embeddings_clinical':embeddings_clinical
@@ -324,3 +320,7 @@ if len(ner_payload)!=0:
     get_table_download_link(entities_df )
 
     display_time(start_time)
+    
+    
+# how to run
+# streamlit run sparknlp_ner_playground.py
